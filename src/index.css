@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局样式 */
+:root {
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-success: #16a34a;
+  --color-warning: #ca8a04;
+  --color-danger: #dc2626;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
+
+/* 暗色模式 */
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-600;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* 节点延迟颜色 */
+.ping-good {
+  @apply text-green-600 bg-green-50;
+}
+
+.ping-avg {
+  @apply text-yellow-600 bg-yellow-50;
+}
+
+.ping-bad {
+  @apply text-red-600 bg-red-50;
+}
+
+.dark .ping-good {
+  @apply text-green-400 bg-green-900/30;
+}
+
+.dark .ping-avg {
+  @apply text-yellow-400 bg-yellow-900/30;
+}
+
+.dark .ping-bad {
+  @apply text-red-400 bg-red-900/30;
+}
+
+/* 玻璃态效果 */
+.glass {
+  @apply bg-white/80 backdrop-blur-md;
+}
+
+.dark .glass {
+  @apply bg-gray-800/80;
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+}
+
+/* 按钮基础样式 */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-700 shadow-md shadow-primary-200;
+}
+
+.dark .btn-primary {
+  @apply shadow-none;
+}
+
+.btn-secondary {
+  @apply bg-white border border-gray-200 text-gray-700 hover:bg-gray-50;
+}
+
+.dark .btn-secondary {
+  @apply bg-gray-800 border-gray-700 text-gray-300 hover:bg-gray-700;
+}
+
+/* 输入框样式 */
+.input {
+  @apply w-full px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm transition-all duration-200;
+  @apply focus:ring-2 focus:ring-primary-500 focus:border-transparent focus:outline-none;
+}
+
+.dark .input {
+  @apply bg-gray-800 border-gray-700 text-gray-100;
+}
+
+/* 选中状态动画 */
+@keyframes checkmark {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.checked-animation {
+  animation: checkmark 0.2s ease-out;
+}
+
+/* 加载动画 */
+.loading-dots::after {
+  content: '';
+  animation: loading-dots 1.5s infinite;
+}
+
+@keyframes loading-dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+/* 隐藏滚动条但保持可滚动 */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* 协议标签颜色 */
+.protocol-vmess { @apply bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400; }
+.protocol-vless { @apply bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400; }
+.protocol-trojan { @apply bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400; }
+.protocol-ss { @apply bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400; }
+.protocol-ssr { @apply bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400; }
+.protocol-hy2 { @apply bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-400; }
+.protocol-hysteria { @apply bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-400; }
+.protocol-tuic { @apply bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400; }
