@@ -140,7 +140,7 @@ function generateRawLink(proxy: Record<string, unknown>): string {
                 scy: proxy.cipher || 'auto',
                 net: proxy.network || 'tcp',
                 tls: proxy.tls ? 'tls' : '',
-                host: (proxy['ws-opts'] as Record<string, unknown>)?.headers?.Host || '',
+                host: ((proxy['ws-opts'] as Record<string, unknown>)?.headers as Record<string, unknown>)?.Host as string || '',
                 path: (proxy['ws-opts'] as Record<string, unknown>)?.path || '',
             };
             return `vmess://${btoa(JSON.stringify(vmessConfig))}`;

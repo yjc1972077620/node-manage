@@ -113,8 +113,6 @@ async function httpSpeedTest(node: ProxyNode): Promise<SpeedTestResult> {
  * 通过代理下载一个小文件，测量下载速度
  */
 async function downloadSpeedTest(node: ProxyNode): Promise<SpeedTestResult> {
-    const start = Date.now();
-
     try {
         const response = await fetch(
             `${API_BASE}/check?ip=${encodeURIComponent(node.server)}&port=${node.port}&mode=download`,
